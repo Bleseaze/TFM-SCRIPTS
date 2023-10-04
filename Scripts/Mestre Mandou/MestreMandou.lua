@@ -1682,19 +1682,19 @@ function eventLoop(passado,faltando)
 			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.3.1</b><")
 		end
 		if rato < 4 then
-			if tfm.get.room.currentMap == "@7935706" then
+			if tfm.get.room.currentMap == "@6789356" then
 				active=-2
 				tfm.exec.setGameTime(8000)
 			else
 				if passado > 5000 then
-					tfm.exec.newGame("@7935706")
+					tfm.exec.newGame("@6789356")
 					tfm.exec.setGameTime(8000)
 					showMessage("<R>"..text.mices.."",nil)
 				end
 			end
 		end
 		if rato >= 4 and passado >= 15000 then
-			if tfm.get.room.currentMap == "@7935706" then
+			if tfm.get.room.currentMap == "@6789356" then
 				tfm.exec.newGame(mapas[math.random(#mapas)],nil)
 			end
 		end
