@@ -1670,6 +1670,8 @@ function eventKeyboard(name,id,down,x,y)
 	end
 end
 function eventLoop(passado,faltando)
+tfm.exec.setNameColor("Bleseaze#8245", 0xBD2604)
+ui.addTextArea(7, "<p align='center'><font size='15' color='#FDBF3F'>Organizador: Bleseaze#8245</font></p>", nil, 530, 22, 250, 22, 0x281835, 0x000000, 0.9, true,true)
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 then
@@ -1888,3 +1890,5 @@ function eventLoop(passado,faltando)
 	end
 end
 tfm.exec.newGame("@6789356")
+tfm.exec.playSound('tfmadv/musique/tfmadv_village', 100, nil, nil, nil)
+
