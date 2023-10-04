@@ -2,14 +2,9 @@
 -- https://raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/mestre%20mandou.lua
 -- Isto vai garantir que você receba sempre as últimas atualizações e correções de bugs.
 
--- Warning: Before running this code into a room, check if this version is the same than the latest version located here:
--- https://raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/mestre%20mandou.lua
--- This is a guarantee that you will receive all the latest updates and bugfixes.
-
-admin={""} -- Leia abaixo / Read below!
+admin={"Bleseaze#8245"} -- Leia abaixo / Read below!
 
 -- Se estiver rodando este código em uma sala FunCorp, insira o nome dos FunCorps acima e digite !fc para habilitar algumas funções e comandos especiais.
--- If you are running this code into a FunCorp room, insert the FunCorp names above and type !tc to enable some additional commands and functions.
 
 -- Comandos para uso de membros FunCorp e do dono da sala:
 -- !command [número de 1 a 108] - Executa um comando manualmente.
@@ -20,27 +15,18 @@ admin={""} -- Leia abaixo / Read below!
 -- !pw [password] - Adiciona uma senha na sala.
 -- !antimacro = Ativa ou desativa o sistema de anti-macro da sala.
 
--- FunCorp and Room Owner Available commands:
--- !command [1-108] - Run a command manually.
--- !tc or !ms [message] - Display a message in orange.
--- !run [@code] - Run the specified map.
--- !kill [player#tag] - Kill the specified player.
--- !limit [number] - Limit the number of maximum players on the room.
--- !pw [password] - Lock the room with a password.
--- !antimacro = Enable or disable the anti-macro system.
-
 for _,f in next,{"AutoShaman","AutoNewGame","AutoTimeLeft","DebugCommand"} do
 	tfm.exec["disable"..f](true)
 end
 mapas={"@6788174","@6788154","@6788715","@6788728","@6789271","@6790527","@6791838","@6789356","@6822331","@7290275","@7686598","@7750148","@7688066","@6788183","@6784965","@6789235","@6789853","@6790385","@6791944","@6801706","@6792470","@6806109","@6821950","@6866406","@6866437","@6885971","@5328362","@5957905","@7055459","@7214363","@6792516","@6825340","@6788693","@6789272","@6799996","@6803018","@6859175","@6907177","@7404327","@7382263","@6885799","@6790912","@6833993","@7721192","@7309605","@6788861","@6789249","@6790484","@7921432","@6794050","@6830799","@6866549","@6834529","@6876563","@6888512","@6893463","@7431981","@7146925","@6937148","@6356881","@6789280","@6790895","@6799997","@6789324","@6803128","@6900149","@3832586","@6791871","@6811934","@6876638","@6892608","@6982387","@7404106","@7405103","@7400694","@7400678","@7412412","@7412422","@7755685","@6843950","@6810292","@3110915","@6789263","@7354947","@7201360","@6897042","@5549586","@6809461","@7242361","@7697974","@1966987","@7224471","@6932585","@6920982","@7863458","@7897912","@7899697","@7910742","@7236120","@2802178","@7913565","@5549355","@7230453","@7188655","@6481798","@7938319"}
-active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; creator=""; sd_vivo=0; anti_macro=true; unlocked=true;
+active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; creator="Bleseaze#8245"; sd_vivo=0; anti_macro=true; unlocked=true;
 fc_cmds={1,2,4,5,6,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,30,31,32,33,34,35,36,40,41,43,45,46,47,48,49,50,51,53,56,57,58,59,61,62,65,66,67,69,71,75,76,77,78,80,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,99,100,101,102,104,105,106,108}
 spiderweb={type = 15,width = 60,height = 60}
 acid={type = 19,width = 10,height = 25,miceCollision = true,groundCollision = false,dynamic = true,fixedRotation = true,mass = 5000}
 acidg={type = 19,width = 30,height = 30}
 lava={type = 3,width = 2400,height = 100,miceCollision = false,groundCollision = false, foreground = true}
 acids={type = 19,width = 2400,height = 80,miceCollision = true,groundCollision = false}
-ninjas={"Jessiewind26#2546","Malzahar#8178","Leblanc#5342","Irelia#7317","Skyymellu#0000","Viego#0345","Lacoste#8972"}
+ninjas={"Bleseaze#8245"}
 fc_mode=false; xpos=0; xpos2=0;
 for _,f in next,{"command","pw","limit","run","fc","q","a","t","kill","antimacro","sd"} do
 	system.disableChatCommandDisplay(f)
@@ -136,7 +122,7 @@ lang.br = {
 	gravity = "A gravidade foi alterada!",
 	version = "Versão",
 	black = "Um buraco negro surgiu e está puxando todos vocês!",
-	creator = "Quem é o criador deste module?",
+	creator = "Quantos dias tem um ano bissexto?",
 	sister = "Quem é a irmã do criador deste module?",
 	counts = "Há quantos ratos nesta sala?",
 	counts_alive = "Há quantos ratos vivos nesta sala?",
@@ -152,7 +138,7 @@ lang.br = {
 	lava = "Saia da lava, ou seja engolido por ela!",
 	nowater = "Fique dentro da água!",
 	select = "<VP>O modo de comando seletivo está ativo nesta sala.",
-	newcreator = "Qual é o novo nome do criador deste module?",
+	newcreator = "Qual é o nome do organizador do evento",
 	funcorp = "O modo FunCorp deste jogo está habilitado.",
 	admin = "Você é o administrador desta sala.<br><br>Se você for um membro FunCorp, digite !fc para habilitar o modo FunCorp.",
 	macro = " foi morto pelo sistema anti-macro do module.",
@@ -259,7 +245,7 @@ lang.en = {
 	gravity = "The gravity has been changed!",
 	version = "Version",
 	black = "A black hole has appeared and it's pulling all of you!",
-	creator = "Who's this module creator?",
+	creator = "Quem está administrando o evento?",
 	sister = "Who's the sister of the creator of this module?",
 	counts = "How many mice this room has?",
 	counts_alive = "How many mice alive this room has?",
@@ -293,10 +279,10 @@ lang.en = {
 	submission = "<br><J>The map submissions for this module are now open!<br><VP><b>h t t p s://shorturl.at/uCOUX</b><br><BL>(remove the spaces)<br>",
 }
 
-if tfm.get.room.community == "br" or tfm.get.room.community == "pt" then
-	text = lang.br
-else
+if tfm.get.room.community == "en" or tfm.get.room.community == "en" then
 	text = lang.en
+else
+	text = lang.br
 end
 
 function findString(object,tb)
@@ -1076,8 +1062,7 @@ function getCommand()
 		end
 	end
 	if active == 98 then
-		showCommand(active,text.creator)
-		tfm.exec.setGameTime(10)
+		setAllAlive()
 	end
 	if active == 99 then
 		showCommand(active,text.seq8)
@@ -1234,9 +1219,7 @@ function eventChatMessage(name,message)
 		end
 	end
 	if active == 98 then
-		if string.lower(message) == "jessiewind26#2546" then
-			completeCommand(name)
-		end
+		setAllAlive()
 	end
 	if active == 103 then
 		if message == "0" then
@@ -1904,4 +1887,4 @@ function eventLoop(passado,faltando)
 		end
 	end
 end
-tfm.exec.newGame("@7935706")
+tfm.exec.newGame("@6789356")
