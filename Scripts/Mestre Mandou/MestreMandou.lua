@@ -1,10 +1,15 @@
--- Mapa original link GitHub:
+-- Antes de rodar este código em uma sala, verifique se esta versão coincide com a versão mais recente presente abaixo:
 -- https://raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/mestre%20mandou.lua
--- Script atualizado por Bleseaze#8245.
+-- Isto vai garantir que você receba sempre as últimas atualizações e correções de bugs.
 
-admin={"Bleseaze#8245"} -- Leia abaixo / Read below!
+-- Warning: Before running this code into a room, check if this version is the same than the latest version located here:
+-- https://raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/mestre%20mandou.lua
+-- This is a guarantee that you will receive all the latest updates and bugfixes.
+
+admin={""} -- Leia abaixo / Read below!
 
 -- Se estiver rodando este código em uma sala FunCorp, insira o nome dos FunCorps acima e digite !fc para habilitar algumas funções e comandos especiais.
+-- If you are running this code into a FunCorp room, insert the FunCorp names above and type !tc to enable some additional commands and functions.
 
 -- Comandos para uso de membros FunCorp e do dono da sala:
 -- !command [número de 1 a 108] - Executa um comando manualmente.
@@ -15,24 +20,33 @@ admin={"Bleseaze#8245"} -- Leia abaixo / Read below!
 -- !pw [password] - Adiciona uma senha na sala.
 -- !antimacro = Ativa ou desativa o sistema de anti-macro da sala.
 
+-- FunCorp and Room Owner Available commands:
+-- !command [1-108] - Run a command manually.
+-- !tc or !ms [message] - Display a message in orange.
+-- !run [@code] - Run the specified map.
+-- !kill [player#tag] - Kill the specified player.
+-- !limit [number] - Limit the number of maximum players on the room.
+-- !pw [password] - Lock the room with a password.
+-- !antimacro = Enable or disable the anti-macro system.
+
 for _,f in next,{"AutoShaman","AutoNewGame","AutoTimeLeft","DebugCommand"} do
 	tfm.exec["disable"..f](true)
 end
 mapas={"@6788174","@6788154","@6788715","@6788728","@6789271","@6790527","@6791838","@6789356","@6822331","@7290275","@7686598","@7750148","@7688066","@6788183","@6784965","@6789235","@6789853","@6790385","@6791944","@6801706","@6792470","@6806109","@6821950","@6866406","@6866437","@6885971","@5328362","@5957905","@7055459","@7214363","@6792516","@6825340","@6788693","@6789272","@6799996","@6803018","@6859175","@6907177","@7404327","@7382263","@6885799","@6790912","@6833993","@7721192","@7309605","@6788861","@6789249","@6790484","@7921432","@6794050","@6830799","@6866549","@6834529","@6876563","@6888512","@6893463","@7431981","@7146925","@6937148","@6356881","@6789280","@6790895","@6799997","@6789324","@6803128","@6900149","@3832586","@6791871","@6811934","@6876638","@6892608","@6982387","@7404106","@7405103","@7400694","@7400678","@7412412","@7412422","@7755685","@6843950","@6810292","@3110915","@6789263","@7354947","@7201360","@6897042","@5549586","@6809461","@7242361","@7697974","@1966987","@7224471","@6932585","@6920982","@7863458","@7897912","@7899697","@7910742","@7236120","@2802178","@7913565","@5549355","@7230453","@7188655","@6481798","@7938319"}
-active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; staff="Bleseaze#8245"; sd_vivo=0; anti_macro=true; unlocked=true;
+active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; creator=""; sd_vivo=0; anti_macro=true; unlocked=true;
 fc_cmds={1,2,4,5,6,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,30,31,32,33,34,35,36,40,41,43,45,46,47,48,49,50,51,53,56,57,58,59,61,62,65,66,67,69,71,75,76,77,78,80,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,99,100,101,102,104,105,106,108}
 spiderweb={type = 15,width = 60,height = 60}
 acid={type = 19,width = 10,height = 25,miceCollision = true,groundCollision = false,dynamic = true,fixedRotation = true,mass = 5000}
 acidg={type = 19,width = 30,height = 30}
 lava={type = 3,width = 2400,height = 100,miceCollision = false,groundCollision = false, foreground = true}
 acids={type = 19,width = 2400,height = 80,miceCollision = true,groundCollision = false}
-ninjas={"Bleseaze#8245"}
+ninjas={"Jessiewind26#2546","Malzahar#8178","Leblanc#5342","Irelia#7317","Skyymellu#0000","Viego#0345","Lacoste#8972"}
 fc_mode=false; xpos=0; xpos2=0;
 for _,f in next,{"command","pw","limit","run","fc","q","a","t","kill","antimacro","sd"} do
 	system.disableChatCommandDisplay(f)
 end
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>,
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b><br>Siga tudo o que o jogo mandar e teste seus limites até o fim!<br><br><VP><b>Module criado e gerenciado por Jessiewind26#2546</b><br>O criador original está de volta para casa!</b><br><br><R>Versão 7.3.1",
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
@@ -122,7 +136,7 @@ lang.br = {
 	gravity = "A gravidade foi alterada!",
 	version = "Versão",
 	black = "Um buraco negro surgiu e está puxando todos vocês!",
-	staff = "Qual nome do Staff que está organizando o evento?",
+	creator = "Quem é o criador deste module?",
 	sister = "Quem é a irmã do criador deste module?",
 	counts = "Há quantos ratos nesta sala?",
 	counts_alive = "Há quantos ratos vivos nesta sala?",
@@ -138,7 +152,7 @@ lang.br = {
 	lava = "Saia da lava, ou seja engolido por ela!",
 	nowater = "Fique dentro da água!",
 	select = "<VP>O modo de comando seletivo está ativo nesta sala.",
-	newstaff = "Qual nome do Staff que está organizando o evento?",
+	newcreator = "Qual é o novo nome do criador deste module?",
 	funcorp = "O modo FunCorp deste jogo está habilitado.",
 	admin = "Você é o administrador desta sala.<br><br>Se você for um membro FunCorp, digite !fc para habilitar o modo FunCorp.",
 	macro = " foi morto pelo sistema anti-macro do module.",
@@ -154,9 +168,135 @@ lang.br = {
 	people = "Há quantos humanos aqui nesta sala?",
 	submission = "<br><J>As avaliações de mapas do Mestre Mandou estão abertas!<br><VP><b>h t t p s://shorturl.at/uCOUX</b><br><BL>(remova os espaços do link)<br>",
 }
+lang.en = {
+	welcome = "<N><b>Welcome to Simon Says module!</b><br>Follow everything the game told and test your limits until the end!<br><br><VP><b>Script made and developed by Jessiewind26#2546</b><br>Translation by Draw#6691<br><br><R>Version 7.3.1",
+	dancar = "Dance!",
+	sentar = "Sit down!",
+	confetar = "Throw 5 confetti!",
+	mouse = "Click 10 times on the screen!",
+	beijos = "Give 10 kisses!",
+	dormir = "You are so much sleepy. Sleep to rest.",
+	raiva = "Tigrounette is evil! Be mad at him",
+	chorem = "You didn't get cheese :( Cry!",
+	nchorem = "Dont cry!",
+	esquerda = "Dont go to the left!",
+	direita = "Dont go to the right!",
+	numero = "Type the following number: ",
+	digitar = "Type anything and send it to me.",
+	falar = "Dont speak!",
+	pular = "Dont jump!",
+	mexer = "Dont move!",
+	bandeira = "Swing any flag of a countrie!",
+	ano = "What year are we in?",
+	vesquerda = "Stay turned to the left!",
+	vdireita = "Stay turned to the right!",
+	quadradoa = "Stay on the blue square",
+	quadradov = "Stay on the red square!",
+	quadrado = "Stay on the white square!",
+	nquadrado = "Dont stay on the white square!",
+	retangulo = "Stay inside of the white rectangle!",
+	retangulov = "Stay inside of the red rectangle!",
+	nretangulo = "Dont stay inside of the white rectangle!",
+	nretangulov = "Dont stay inside of the red rectangle!",
+	preesquerda15 = "Press the left key 15 times!",
+	predireita15 = "Press the right key 15 times!",
+	preesquerda30 = "Press the left key 30 times!",
+	predireita30 = "Press the right key 30 times!",
+	preesquerda60 = "Press the left key 60 times!",
+	predireita60 = "Press the right key 60 times!",
+	preesquerda100 = "Press the left key 100 times!",
+	predireita100 = "Press the right key 100 times!",
+	espaco = "Press the space bar 20 times!",
+	nome = "Type your nickname in game (with #number).",
+	ndance = "Dont dance!",
+	key1 = "Press the delete key!",
+	action1 = "Dance, sit and sleep!",
+	laugh = "Laugh now!",
+	laugh2 = "Who laughs now dies.",
+	stone = "Watch out the rock!",
+	noob = "Type: I AM A NOOB",
+	action2 = "Cry and then laugh!",
+	jump = "Jump!",
+	number = "Type the following number: ",
+	key = "Press any key!",
+	jump2 = "Jump 5 times!",
+	action3 = "Give a kiss and then cry!",
+	area = "Find out where is the hidden text and click on it!",
+	dancing = "It's party time!",
+	freeze = "Everyone STOP!",
+	transform = "Dance and sleep!",
+	down1 = "Get down 3 times!",
+	down2 = "Get down 10 times!",
+	mestre = "Simon Says",
+	map = "Map",
+	time = "Time",
+	mice = "Mouses",
+	round = "Round",
+	mices = "This room request at least 4 mice.",
+	difficulty = "Difficulty",
+	segundos = "seconds.",
+	fim = "The match is over! Next starting in ",
+	dofim = "No winners! Next starting in ",
+	playingmap = "Running map",
+	created = "created by",
+	abaixar = "Get down and get up!",
+	action = "Do any action!",
+	naction = "Dont do any action!",
+	math = "How much it is 1+1?",
+	math1 = "How much it is 2+2?",
+	ds = "Dance and sit!",
+	seq4 = "Dance, sit, sleep and clap!",
+	seq5 = "Dance, clap and laught!",
+	seq6 = "Dance and cry!",
+	seq7 = "Dance, give a kiss and get angry!",
+	seq8 = "Give a kiss, sleep and cry!",
+	spider = "Watch out at the cobwebs!",
+	key2 = "Press F4!",
+	clap = "Clap 5 times!",
+	completed = "You completed the command successfully!",
+	rain = "Sheep rain!",
+	skull = "Watch out at the skulls!",
+	gravity = "The gravity has been changed!",
+	version = "Version",
+	black = "A black hole has appeared and it's pulling all of you!",
+	creator = "Who's this module creator?",
+	sister = "Who's the sister of the creator of this module?",
+	counts = "How many mice this room has?",
+	counts_alive = "How many mice alive this room has?",
+	facepalm = "Put your hand on your face 5 times!",
+	enterprise = "What company created Transformice?",
+	collect = "Caution with the acid rain!",
+	balls = "It's raining balls!",
+	explosion = "Look the explosion!",
+	queijo = "All mices that catched the cheese will die!",
+	caps = "Press the CAPS LOCK key 10 times!",
+	tribe = "Type the name of your tribe! (if you have)",
+	acid = "Caution with the acid grounds!",
+	water = "Get out of the water!",
+	lava = "Get out of the lava!",
+	nowater = "Stay into the water!",
+	select = "<VP>The selective command mode is now enabled.",
+	newcreator = "Who's the new nickname of the module creator?",
+	funcorp = "The FunCorp mode of this module is now enabled.",
+	admin = "You are the administrator of this room.<br><br>If you are a FunCorp member, type !fc to enable the FunCorp mode.",
+	macro = " is now dead by the anti-macro system.",
+	balloon = "Balloon party!",
+	lava1 = "Caution! The floor is turning into lava!",
+	lava2 = "The floor is lava!",
+	light = "The map is now black!",
+	ndurma = "Dont sleep!",
+	clickhere = "<font size='8'>CLICK HERE",
+	apple = "Apple rain!",
+	cn = "Cannon rain!",
+	people = "How much humans are in this room?",
+	move = "Move your mice!",
+	submission = "<br><J>The map submissions for this module are now open!<br><VP><b>h t t p s://shorturl.at/uCOUX</b><br><BL>(remove the spaces)<br>",
+}
 
 if tfm.get.room.community == "br" or tfm.get.room.community == "pt" then
 	text = lang.br
+else
+	text = lang.en
 end
 
 function findString(object,tb)
@@ -232,7 +372,7 @@ function eventNewPlayer(name)
 	if string.find(tfm.get.room.name,name) then
 		table.insert(admin,name)
 		showMessage(text.admin,name)
-		showMessage("<br>Comandos disponiveis: <br>!command [1-108] - Rode um comando manualmente.<br>!run [@code] - Rode um mapa especifico.<br> !kill [player#tag] - Mate um player especifico.<br>!limit [number] - Limite o numero de jogadores da sala.<br> !pw [password] - Feche a sala com senha.<br>!antimacro = Ativar ou desativar o antimacro",name)
+		showMessage("<br>Available commands: <br>!command [1-108] - Run a command manually.<br>!run [@code] - Run the specified map.<br> !kill [player#tag] - Kill the specified player.<br>!limit [number] - Limit the number of maximum players on the room.<br> !pw [password] - Lock the room with a password.<br>!antimacro = Enable or disable the anti-macro system.",name)
 	end
 end
 for name,player in next,tfm.get.room.playerList do
@@ -354,10 +494,10 @@ function eventChatCommand(name,message)
 			if message == "fc" then
 				if fc_mode == false then
 					fc_mode=true
-					showMessage("<R>O modo Funcorp nesse module esta ativado.",name)
+					showMessage("<R>The FunCorp mode of this module is now enabled.",name)
 				else
 					fc_mode=false
-					showMessage("<R>Modo Funcorp desativado.",name)
+					showMessage("<R>The FunCorp mode of this module is now disabled.",name)
 				end
 			end
 			if message == "antimacro" then
@@ -936,7 +1076,7 @@ function getCommand()
 		end
 	end
 	if active == 98 then
-		showCommand(active,text.staff)
+		showCommand(active,text.creator)
 		tfm.exec.setGameTime(10)
 	end
 	if active == 99 then
@@ -1765,4 +1905,3 @@ function eventLoop(passado,faltando)
 	end
 end
 tfm.exec.newGame("@7935706")
-tfm.exec.setUIMapName("Evento O Mestre Mandou | editado por: Bleseaze#8245")
