@@ -1765,3 +1765,4 @@ function eventLoop(passado,faltando)
 	end
 end
 tfm.exec.newGame("@7935706")
+tfm.exec.setUIMapName("Evento O Mestre Mandou | editado por: Bleseaze#8245")
