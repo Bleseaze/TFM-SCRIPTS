@@ -19,7 +19,7 @@ for _,f in next,{"AutoShaman","AutoNewGame","AutoTimeLeft","DebugCommand"} do
 	tfm.exec["disable"..f](true)
 end
 mapas={"@6788174","@6788154","@6788715","@6788728","@6789271","@6790527","@6791838","@6789356","@6822331","@7290275","@7686598","@7750148","@7688066","@6788183","@6784965","@6789235","@6789853","@6790385","@6791944","@6801706","@6792470","@6806109","@6821950","@6866406","@6866437","@6885971","@5328362","@5957905","@7055459","@7214363","@6792516","@6825340","@6788693","@6789272","@6799996","@6803018","@6859175","@6907177","@7404327","@7382263","@6885799","@6790912","@6833993","@7721192","@7309605","@6788861","@6789249","@6790484","@7921432","@6794050","@6830799","@6866549","@6834529","@6876563","@6888512","@6893463","@7431981","@7146925","@6937148","@6356881","@6789280","@6790895","@6799997","@6789324","@6803128","@6900149","@3832586","@6791871","@6811934","@6876638","@6892608","@6982387","@7404106","@7405103","@7400694","@7400678","@7412412","@7412422","@7755685","@6843950","@6810292","@3110915","@6789263","@7354947","@7201360","@6897042","@5549586","@6809461","@7242361","@7697974","@1966987","@7224471","@6932585","@6920982","@7863458","@7897912","@7899697","@7910742","@7236120","@2802178","@7913565","@5549355","@7230453","@7188655","@6481798","@7938319"}
-active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; creator=""; sd_vivo=0; anti_macro=true; unlocked=true;
+active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; xpos=0; ypos=0; data={}; lang={}; alives={}; tempo=10; counter=0; q=""; a=""; qtime=10; staff="Bleseaze#8245"; sd_vivo=0; anti_macro=true; unlocked=true;
 fc_cmds={1,2,4,5,6,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,28,30,31,32,33,34,35,36,40,41,43,45,46,47,48,49,50,51,53,56,57,58,59,61,62,65,66,67,69,71,75,76,77,78,80,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,99,100,101,102,104,105,106,108}
 spiderweb={type = 15,width = 60,height = 60}
 acid={type = 19,width = 10,height = 25,miceCollision = true,groundCollision = false,dynamic = true,fixedRotation = true,mass = 5000}
@@ -122,7 +122,7 @@ lang.br = {
 	gravity = "A gravidade foi alterada!",
 	version = "Versão",
 	black = "Um buraco negro surgiu e está puxando todos vocês!",
-	creator = "Quem é o criador deste module?",
+	staff = "Qual nome do Staff que está organizando o evento?",
 	sister = "Quem é a irmã do criador deste module?",
 	counts = "Há quantos ratos nesta sala?",
 	counts_alive = "Há quantos ratos vivos nesta sala?",
@@ -138,7 +138,7 @@ lang.br = {
 	lava = "Saia da lava, ou seja engolido por ela!",
 	nowater = "Fique dentro da água!",
 	select = "<VP>O modo de comando seletivo está ativo nesta sala.",
-	newcreator = "Qual é o novo nome do criador deste module?",
+	newstaff = "Qual nome do Staff que está organizando o evento?",
 	funcorp = "O modo FunCorp deste jogo está habilitado.",
 	admin = "Você é o administrador desta sala.<br><br>Se você for um membro FunCorp, digite !fc para habilitar o modo FunCorp.",
 	macro = " foi morto pelo sistema anti-macro do module.",
@@ -936,7 +936,7 @@ function getCommand()
 		end
 	end
 	if active == 98 then
-		showCommand(active,text.creator)
+		showCommand(active,text.staff)
 		tfm.exec.setGameTime(10)
 	end
 	if active == 99 then
