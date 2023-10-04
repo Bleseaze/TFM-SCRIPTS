@@ -32,7 +32,7 @@ for _,f in next,{"command","pw","limit","run","fc","q","a","t","kill","antimacro
 	system.disableChatCommandDisplay(f)
 end
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b><br>Siga tudo o que o jogo mandar e teste seus limites até o fim!<br><br><VP><b>Module modificado por Bleseaze#8245</b><br>Script para evento PP</b><br><br><R>Versão 7.3.1",
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>,
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
