@@ -1700,7 +1700,7 @@ ui.addTextArea(7, "<p align='center'><font size='15' color='#FDBF3F'>Organizador
 				tfm.exec.newGame(mapas[math.random(#mapas)],nil)
 			end
 		end
-		if active < 0 and faltando <= 1000 and faltando >= 449 then
+		if active < 4 and faltando <= 1000 and faltando >= 449 then
 			tfm.exec.newGame(mapas[math.random(#mapas)])
 		end
 		if active == 96 and tempo == 6 then
