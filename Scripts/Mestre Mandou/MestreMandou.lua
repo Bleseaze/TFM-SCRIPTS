@@ -15,6 +15,45 @@ admin={"Bleseaze#8245"} -- Leia abaixo / Read below!
 -- !pw [password] - Adiciona uma senha na sala.
 -- !antimacro = Ativa ou desativa o sistema de anti-macro da sala.
 
+-- Tabela de cores para os jogadores do Brasil
+local colorsBrazil = {
+    0x009900, -- Verde
+    0xFFCC29, -- Amarelo
+    0x0000FF, -- Azul
+    0xFFFFFF, -- Branco
+}
+
+-- Tabela de cores para os jogadores cor Outra
+local colorsOther = {
+    0xff0000, -- Vermelho
+    0xff4000, -- Laranja claro
+    0xff8000, -- Laranja
+    0xffbf00, -- Laranja escuro
+    0xffff00, -- Amarelo
+    0xc0ff00, -- Amarelo esverdeado
+    0x80ff00, -- Verde claro
+    0x40ff00, -- Verde
+    0x00ff00, -- Verde puro
+    0x00ff40, -- Verde azulado
+    0x00ff80, -- Verde ciano
+    0x00ffbf, -- Verde azul claro
+    0x00ffff, -- Ciano
+    0x00bfff, -- Ciano azul claro
+    0x0080ff, -- Azul claro
+    0x0040ff, -- Azul
+    0x0000ff, -- Azul puro
+    0x4000ff, -- Azul roxo
+    0x8000ff, -- Roxo claro
+    0xbf00ff, -- Roxo
+    0xff00ff, -- Magenta
+}
+
+local targetPlayerBrazil = "" -- Nome do jogar cor Brasil
+local targetPlayerOther = "Bleseaze#8245" -- Outros
+
+local currentIndexBrazil = 1 -- Índice atual na tabela de cores do Brasil
+local currentIndexOther = 1 -- Índice atual na tabela de cores
+
 for _,f in next,{"AutoShaman","AutoNewGame","AutoTimeLeft","DebugCommand"} do
 	tfm.exec["disable"..f](true)
 end
@@ -1670,8 +1709,10 @@ function eventKeyboard(name,id,down,x,y)
 	end
 end
 function eventLoop(passado,faltando)
-tfm.exec.setNameColor("Bleseaze#8245", 0xBD2604)
-ui.addTextArea(7, "<p align='center'><font size='15' color='#FDBF3F'>Organizador: Bleseaze#8245</font></p>", nil, 530, 22, 250, 22, 0x281835, 0x000000, 0.9, true,true)
+	ui.addTextArea(7, "<p align='center'><font size='15' color='#FDBF3F'>Organizador: Bleseaze#8245</font></p>", nil, 530, 22, 250, 22, 0x281835, 0x000000, 0.9, true,true)
+        for playerName, playerData in pairs(tfm.get.room.playerList) do
+        	updateNameColor(playerName)
+	end
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 then
@@ -1891,4 +1932,20 @@ ui.addTextArea(7, "<p align='center'><font size='15' color='#FDBF3F'>Organizador
 end
 tfm.exec.newGame("@6789356")
 tfm.exec.playSound('tfmadv/musique/tfmadv_village', 100, nil, nil, nil)
+-- Função para atualizar a cor do nome do jogador
+function updateNameColor(playerName)
+    local color
+
+    if playerName == targetPlayerBrazil then
+        color = colorsBrazil[currentIndexBrazil] -- Obter a cor do Brasil no índice atual
+        currentIndexBrazil = (currentIndexBrazil % #colorsBrazil) + 1 -- Avançar para a próxima cor do Brasil
+    elseif playerName == targetPlayerOther then
+        color = colorsOther[currentIndexOther] -- Obter a cor de outros países no índice atual
+        currentIndexOther = (currentIndexOther % #colorsOther) + 1 -- Avançar para a próxima cor de outros países
+    end
+
+    if color then
+        tfm.exec.setNameColor(playerName, color) -- Definir a cor do nome do jogador
+    end
+end
 
