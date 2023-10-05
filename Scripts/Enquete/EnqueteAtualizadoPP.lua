@@ -2,10 +2,10 @@
 tfm.exec.disableAfkDeath(true)
 tfm.exec.disableAutoShaman(true)
 tfm.exec.disableAutoNewGame(true)
-tfm.exec.newGame(7934151)
-
+tfm.exec.newGame(7942505)
+-- 7934151
 enquete = {}
-		enquete[1] = "O Mestre Mandou" -- Enquete opção
+		enquete[1] = "X1 Racing" -- Enquete opção
 		enquete[2] = "STOP (Adedanha)" -- Enquete opção
 		enquete[3] = "O Chão é lava" -- Enquete opção
 		enquete[4] = "Labirinto" -- Enquete opção
